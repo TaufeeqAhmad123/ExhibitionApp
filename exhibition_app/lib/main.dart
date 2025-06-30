@@ -1,8 +1,10 @@
 import 'package:exhibition_app/provider/theme_provider.dart';
 import 'package:exhibition_app/screen/home/home_screen.dart';
+import 'package:exhibition_app/screen/onboarding.dart';
 import 'package:exhibition_app/utils/Theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -24,12 +26,13 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812), 
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
-          title: 'Flutter Demo',
-          themeMode: themeProvider.themeMode,
+        return GetMaterialApp(
+          title: 'Virtual Exhibition App',
+          debugShowCheckedModeBanner: false,
+          themeMode: ThemeMode.system,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
-          home: HomeScreen(),
+          home: Onboarding(),
         );
       },
     );
